@@ -38,7 +38,10 @@ async function Ranker() {
             if (Owned[0][0] && Owned[0][0].badgeId == BadgeIds[Index]) {
                 await fetch(`https://groups.roblox.com/v1/groups/5587275/users/${Member.userId}`, {
                     method: "POST",
-                    body: {"roleid": RoleIds[Index]}
+                    body: {"roleid": RoleIds[Index]},
+                    headers: {
+                        "cookie": ".ROBLOSECURITY=" + process.env.COOKIE
+                    },
                 });
                 Ranked = true;
             };
@@ -47,7 +50,10 @@ async function Ranker() {
             // Rank to Casual (0 badges)
             fetch(`https://groups.roblox.com/v1/groups/5587275/users/${Member.userId}`, {
                 method: "POST",
-                body: {"roleid": 36859950}
+                body: {"roleid": 36859950},
+                headers: {
+                    "cookie": ".ROBLOSECURITY=" + process.env.COOKIE
+                },
             });
         };
     };
@@ -55,7 +61,7 @@ async function Ranker() {
         Ranker();
     }
     else {
-        //setTimeout(() => {Ranker();}, 60000);
+        setTimeout(() => {Ranker();}, 60000);
     }
 };
 
