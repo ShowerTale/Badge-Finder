@@ -12,15 +12,14 @@ async function Ranker() {
         for (let Index in Object2) {
             Owned.push(Object2[Index]);
         };
-        console.log(Owned[0])
         const BadgeIds = [
-            2146720182, // 240k
+            2147859466, // 250k
             2136041569, // 200k
             2136041136, // 150k
             2136040813, // 100k
-            2136040637, // 70k
+            2147859516, // 75k
             2136040098, // 50k
-            2136039282, // 20k
+            2147859486, // 25k
             2136039140, // 10k
         ];
         const RoleIds = [
@@ -95,7 +94,7 @@ async function Ranker() {
                 Ranked = true;
             };
         };
-        if (Ranked !== true) {
+        if (Ranked != true) {
             // Rank to Casual (0 badges)
             await fetch(`https://groups.roblox.com/v1/groups/5587275/users/${Member.userId}`, {
                 method: "POST",
@@ -146,7 +145,7 @@ async function Ranker() {
             }).catch(error => {console.error(`Error ranking member sending message through webhook: ${error}`)});
         };
     };
-    if (Members[1] !== null) {
+    if (Members[1] != null) {
         Ranker();
     }
     else {
