@@ -1,13 +1,13 @@
 // Settings
-const UserId = 4127747077; // Your user id. This NEEDS to be set for numerous things to work (such as playability status and badge ownership).
+const UserId = 1; // Your user id. This NEEDS to be set for numerous things to work (such as playability status and badge ownership).
 const BadgeValue = { // The value of badges to look for.
     Free: false,
     Legacy: true,
     Valuable: true,
 };
 const BadgeType = { // Type of badges to look for.
-    Any: false, // Bypasses other settings and just looks for *any* badge.
-    Welcome: true,
+    Any: true, // Bypasses other settings and just looks for *any* badge.
+    Welcome: false,
     Obby: false,
     Hidden: false,
     AFK: false,
