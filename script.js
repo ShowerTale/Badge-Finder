@@ -27,7 +27,7 @@ import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 const NonIds = require("./nonids.json").Ids;
 async function GetVersion() {
-    const NewestVersion = (await (await (fetch(""))).json()).version
+    const NewestVersion = (await (await (fetch("https://raw.githubusercontent.com/ShowerTale/Badge-Finder/main/package.json"))).json()).version
     if (NewestVersion > parseFloat(require("./package.json").version
     )) {
         console.log("There is a newer version of this script available on GitHub. You can find the GitHub repository at this link: ")
@@ -403,7 +403,6 @@ async function Launch() {
         while (!Owned) {
             await new Promise(resolve => {setTimeout(resolve, 1000)});
             Owned = (await (await fetch(`https://badges.roblox.com/v1/users/${UserId}/badges/awarded-dates?badgeIds=${BadgeId}`).catch(async function() {console.log("Fetch errored (this is usually due to losing connection and/or poor connection), retrying in 3 seconds..."); await new Promise(resolve => {setTimeout(resolve, 3000)}); Launch(); return})).json()).data[0];
-            console.log(Owned)
         };
     };
     Launch();
